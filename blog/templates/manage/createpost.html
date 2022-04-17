@@ -1,0 +1,104 @@
+{% extends "header.html" %}
+{% load static %}
+
+{% block manage %}
+<div class="colorlib-loader"></div>
+
+<div id="page">
+
+
+
+
+
+
+
+  <div id="colorlib-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 content">
+          <div class="row">
+            <div class="col-md-12">
+              <form class="" action = "." enctype="multipart/form-data" method="post">
+                {% csrf_token %}
+                  {{ form.media }}
+									<div class="row form-group">
+										<div class="col-lg-12">
+											<label for="fname">categorie</label>
+                      {{form.categorie}}
+											<!--<input type="text" id="fname" class="form-control" placeholder="Your firstname">-->
+										</div>
+                  </div>
+                  <div class="row form-group">
+										<div class="col-lg-12">
+											<label for="lname">header image</label>
+                      {{form.header_img}}
+											<!--<input type="text" id="lname" class="form-control" placeholder="Your lastname">-->
+										</div>
+                  </div>
+
+
+									<div class="row form-group">
+										<div class="col-md-12">
+											<label for="email">title</label>
+                      {{form.title}}
+											<!--<input type="text" id="email" class="form-control" placeholder="Your email address">-->
+										</div>
+									</div>
+
+
+
+									<div class="row form-group">
+										<div class="col-md-12">
+											<label for="message">content</label>
+                      {{form.content}}
+											<!--<textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Say something about us"></textarea>-->
+										</div>
+									</div>
+									<div class="form-group">
+										<input type="submit" value="create post" class="btn btn-primary">
+									</div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="sidebar">
+            <div class="side">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search" placeholder="Enter any key to search...">
+                <button type="submit" class="btn btn-primary"><i class="icon-search3"></i></button>
+              </div>
+
+            </div>
+            <div class="side">
+                <a href="{% url 'create_post' %}"> create post </a>
+            </div>
+
+            <div class="side">
+              <h2 class="sidebar-heading">Categories</h2>
+              <p>
+                <ul class="category">
+
+                  <li><a href="#"><i class="icon-check"></i> Science and Technology</a></li>
+                  <li><a href="#"><i class="icon-check"></i> Culture</a></li>
+                  <li><a href="#"><i class="icon-check"></i> events</a></li>
+                  <li><a href="#"><i class="icon-check"></i> opportunities</a></li>
+
+                </ul>
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+</div>
+{% endblock %}

@@ -1,0 +1,104 @@
+{% extends "header.html" %}
+{% load static %}
+
+
+{% block manage %}
+<div class="colorlib-loader"></div>
+
+<div id="page">
+
+  <div class="manage-nav container">
+
+    <div>posts</div>
+    <div><a href="{% url 'manage_courses' %}">courses</a></div>
+
+
+
+
+  </div>
+
+
+
+
+
+  <div id="colorlib-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 content">
+          <div class="row row-pb-md">
+            {% for post in my_posts %}
+
+            <div class="col-md-6">
+              <div class="blog-entry">
+                <div class="blog-img">
+                  <a href="blog.html"><img src=" {{post.header_img.url}}" class="img-responsive" alt="html5 bootstrap template"></a>
+                </div>
+                <div class="desc">
+                  <p class="meta">
+                    <span class="cat"><a href="#">{{post.categorie}}</a></span>
+                    <span class="date">{{post.created}}</span>
+                    <span class="pos">By <a href="#">{{post.author}}</a></span>
+                  </p>
+                  <h2><a href="{% url 'post_details' post.slug %}">{{post.title}}</a></h2>
+                  <p>{{post.content|safe}}</p>
+                </div>
+                <a href="{% url 'update_post' post.slug %}"> edit post </a>
+                <a href="{% url 'delete_post' post.slug %}"> delete post</a>
+              </div>
+            </div>
+            {% endfor %}
+
+          </div>
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <ul class="pagination">
+                <li class="disabled"><a href="#">&laquo;</a></li>
+                <li class="active"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">&raquo;</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="sidebar">
+            <div class="side">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search" placeholder="Enter any key to search...">
+                <button type="submit" class="btn btn-primary"><i class="icon-search3"></i></button>
+              </div>
+
+            </div>
+            <div class="side">
+                <a href="{% url 'create_post' %}"> create post </a>
+            </div>
+
+            <div class="side">
+              <h2 class="sidebar-heading">Categories</h2>
+              <p>
+                <ul class="category">
+
+                  <li><a href="#"><i class="icon-check"></i> Science and Technology</a></li>
+                  <li><a href="#"><i class="icon-check"></i> Culture</a></li>
+                  <li><a href="#"><i class="icon-check"></i> events</a></li>
+                  <li><a href="#"><i class="icon-check"></i> opportunities</a></li>
+
+                </ul>
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+</div>
+{% endblock %}

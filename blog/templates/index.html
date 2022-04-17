@@ -1,0 +1,204 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+{% block content %}
+	<div class="colorlib-loader"></div>
+
+	<div id="page">
+		<aside id="colorlib-hero">
+			<div class="flexslider">
+				<ul class="slides">
+			   	<li style="background-image: url( {% static 'images/img_bg_2.jpg' %} );">
+			   		<div class="overlay"></div>
+			   		<div class="container">
+			   			<div class="row">
+				   			<div class="col-md-6 col-md-pull-3 col-sm-12 col-xs-12 col-md-offset-3 slider-text">
+				   				<div class="slider-text-inner">
+				   					<div class="desc">
+				   						<p class="meta">
+												<span class="cat"><a href="#">CupTech</a></span>
+												<span class="date">08 Decembre 2018</span>
+												<!--<span class="pos">By <a href="#">Rich</a></span>-->
+											</p>
+					   					<h1>Passion for technology brings us together</h1>
+				   					</div>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>
+			   	<li style="background-image: url( {% static 'images/img_bg_2.jpg' %} );">
+			   		<div class="overlay"></div>
+			   		<div class="container">
+			   			<div class="row">
+				   			<div class="col-md-6 col-md-pull-3 col-sm-12 col-xs-12 col-md-offset-3 slider-text">
+				   				<div class="slider-text-inner">
+				   					<div class="desc">
+				   						<p class="meta">
+												<span class="cat"><a href="#">Courses</a></span>
+												<!--<span class="date">20 March 2018</span>
+												<span class="pos">By <a href="#">Rich</a></span> -->
+											</p>
+					   					<h1> Develope your skills with our courses </h1>
+				   					</div>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>
+			   	<li style="background-image: url({% static 'images/img_bg_3.jpg' %});">
+			   		<div class="overlay"></div>
+			   		<div class="container">
+			   			<div class="row">
+				   			<div class="col-md-6 col-md-pull-3 col-sm-12 col-xs-12 col-md-offset-3 slider-text">
+				   				<div class="slider-text-inner">
+				   					<div class="desc">
+				   						<p class="meta">
+												<span class="cat"><a href="#">Posts</a></span>
+												<!--<span class="date">20 March 2018</span>
+												<span class="pos">By <a href="#">Rich</a></span>-->
+											</p>
+					   					<h1> knwoledge in your hends </h1>
+				   					</div>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>
+			  	</ul>
+		  	</div>
+		</aside>
+		<div class="sub-nav container">
+
+			<div>Science and Technology</div>
+			<div>Culture</div>
+			<div>events</div>
+			<div>opportunities</div>
+
+
+
+		</div>
+
+
+
+
+
+		<div id="colorlib-container">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-9 content">
+						<div class="row row-pb-md">
+							{% for post in posts %}
+
+							<div class="col-md-6">
+								<div class="blog-entry">
+									<div class="blog-img">
+										<a href="{% url 'post_details' post.slug %}"><img src=" {{post.header_img.url}}" class="img-responsive" alt="html5 bootstrap template"></a>
+									</div>
+									<div class="desc">
+										<p class="meta">
+											<span class="cat"><a href="#">{{post.categorie}}</a></span>
+											<span class="date">{{post.created}}</span>
+											<span class="pos">By <a href="#">{{post.author}}</a></span>
+										</p>
+										<h2><a href="{% url 'post_details' post.slug %}">{{post.title}}</a></h2>
+										<p>{{post.content}}</p>
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+
+						</div>
+						<div class="row">
+							<div class="col-md-12 text-center">
+								<ul class="pagination">
+									<li class="disabled"><a href="#">&laquo;</a></li>
+									<li class="active"><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">4</a></li>
+									<li><a href="#">&raquo;</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="sidebar">
+							<div class="side">
+								<div class="form-group">
+									<input type="text" class="form-control" id="search" placeholder="Enter any key to search...">
+									<button type="submit" class="btn btn-primary"><i class="icon-search3"></i></button>
+								</div>
+							</div>
+							<div class="side">
+								<a href="{% url 'manage' %}"> manage </a>
+								<h2 class="sidebar-heading">Categories</h2>
+								<p>
+									<ul class="category">
+
+										<li><a href="#"><i class="icon-check"></i> Science and Technology</a></li>
+										<li><a href="#"><i class="icon-check"></i> Culture</a></li>
+										<li><a href="#"><i class="icon-check"></i> events</a></li>
+										<li><a href="#"><i class="icon-check"></i> opportunities</a></li>
+
+									</ul>
+								</p>
+							</div>
+							<div class="side">
+								<h2 class="sidebar-heading">Recent Blog</h2>
+								<div class="f-blog">
+									<a href="blog.html" class="blog-img" style="background-image: url( {% static 'images/blog-1.jpg' %} );">
+									</a>
+									<div class="desc">
+										<h3><a href="blog.html">Be a designer</a></h3>
+										<p class="admin"><span>25 March 2018</span></p>
+									</div>
+								</div>
+
+							</div>
+							<div class="side">
+								<h2 class="sidebar-heading">Instagram</h2>
+								<div class="instagram-entry">
+									<iframe src="https://www.instagram.com/cuptech.club/?igshid=zuuagtmx23gg" title="cuptech instagram"></iframe>
+									<!--<a href="#" class="instagram text-center" style="background-image: url(images/gallery-1.jpg);">
+									</a>
+									<a href="#" class="instagram text-center" style="background-image: url(images/gallery-2.jpg);">
+									</a>
+									<a href="#" class="instagram text-center" style="background-image: url(images/gallery-3.jpg);">
+									</a>
+									<a href="#" class="instagram text-center" style="background-image: url(images/gallery-4.jpg);">
+									</a>
+									<a href="#" class="instagram text-center" style="background-image: url(images/gallery-5.jpg);">
+									</a>
+									<a href="#" class="instagram text-center" style="background-image: url(images/gallery-6.jpg);">
+									</a>
+									<a href="#" class="instagram text-center" style="background-image: url(images/gallery-7.jpg);">
+									</a>
+									<a href="#" class="instagram text-center" style="background-image: url(images/gallery-8.jpg);">
+									</a>-->
+								</div>
+							</div>
+							<div class="side">
+								<div class="form-group">
+									<input type="text" class="form-control form-email text-center" id="email" placeholder="Enter your email">
+									<button type="submit" class="btn btn-primary btn-subscribe">Subscribe</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+	</div>
+
+
+
+{% endblock %}

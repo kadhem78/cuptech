@@ -1,0 +1,99 @@
+{% extends "header.html" %}
+{% load static %}
+
+
+{% block manage %}
+	<div class="colorlib-loader"></div>
+
+	<div id="page">
+
+
+		<div id="colorlib-container">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-9 content">
+						<div class="row row-pb-lg">
+							<div class="col-md-12">
+								<div class="blog-entry">
+									<div class="blog-img blog-detail">
+										<img src=" {% static 'images/blog-4.jpg' %}" class="img-responsive" alt="html5 bootstrap template">
+									</div>
+									<div class="desc">
+										<p class="meta">
+											<span class="cat"><a href="#">{{post.categorie}}</a></span>
+											<span class="date">{{post.created}}</span>
+											<span class="pos">By <a href="#">{{post.author}}</a></span>
+										</p>
+										<h2><a href="blog.html">{{post.titile}}</a></h2>
+										<p>{{post.content|safe}} </p>
+
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<div class="col-md-3">
+						<div class="sidebar">
+							<div class="side">
+								<div class="form-group">
+									<input type="text" class="form-control" id="search" placeholder="Enter any key to search...">
+									<button type="submit" class="btn btn-primary"><i class="icon-search3"></i></button>
+								</div>
+							</div>
+							<div class="side">
+								<h2 class="sidebar-heading">Categories</h2>
+								<p>
+									<ul class="category">
+										<li><a href="#"><i class="icon-check"></i> Home</a></li>
+										<li><a href="#"><i class="icon-check"></i> About Me</a></li>
+										<li><a href="#"><i class="icon-check"></i> Blog</a></li>
+										<li><a href="#"><i class="icon-check"></i> Travel</a></li>
+										<li><a href="#"><i class="icon-check"></i> Lifestyle</a></li>
+										<li><a href="#"><i class="icon-check"></i> Fashion</a></li>
+										<li><a href="#"><i class="icon-check"></i> Health</a></li>
+									</ul>
+								</p>
+							</div>
+							<div class="side">
+								<h2 class="sidebar-heading">Recent Blog</h2>
+								<div class="f-blog">
+									<a href="blog.html" class="blog-img" style="background-image: url(images/blog-1.jpg);">
+									</a>
+									<div class="desc">
+										<h3><a href="blog.html">Be a designer</a></h3>
+										<p class="admin"><span>25 March 2018</span></p>
+									</div>
+								</div>
+								<div class="f-blog">
+									<a href="blog.html" class="blog-img" style="background-image: url(images/blog-2.jpg);">
+									</a>
+									<div class="desc">
+										<h3><a href="blog.html">How to build website</a></h3>
+										<p class="admin"><span>24 March 2018</span></p>
+									</div>
+								</div>
+								<div class="f-blog">
+									<a href="blog.html" class="blog-img" style="background-image: url(images/blog-3.jpg);">
+									</a>
+									<div class="desc">
+										<h3><a href="blog.html">Create website</a></h3>
+										<p class="admin"><span>23 March 2018</span></p>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+	</div>
+
+
+{% endblock %}
